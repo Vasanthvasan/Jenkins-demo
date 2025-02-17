@@ -1,28 +1,30 @@
 package com.Test.jenkins_Test;
 
-import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @SpringBootApplication
-public class JenkinsTestApplication {
-
-
-	public static Logger log = LoggerFactory.getLogger(JenkinsTestApplication.class);
-
-
-	@PostConstruct
-	public void intt(){
-		log.info("*********************started **************");
-	}
+public class JenkinsTestApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		log.info("********************* Running **************");
-
-		System.out.println("********** Running ***************");
 		SpringApplication.run(JenkinsTestApplication.class, args);
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(JenkinsTestApplication.class);
 	}
 
 }
